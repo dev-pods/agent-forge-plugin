@@ -1,0 +1,158 @@
+{
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+	"name": "Agent Forge",
+	"version": "1.0.0",
+	"description": "A curated team of specialized GitHub Copilot agents for coding, design, planning, and project orchestration.",
+	"extensions": {
+		"agent-forge": {
+			"agents": [
+				{
+					"id": "coder",
+					"name": "Coder",
+					"description": "Writes code following mandatory coding principles.",
+					"category": "development",
+					"tags": [
+						"coding",
+						"implementation",
+						"debugging"
+					],
+					"capabilities": [
+						"implementation",
+						"debugging",
+						"code-quality"
+					],
+					"version": "1.0.0",
+					"author": {
+						"name": "Agent Forge"
+					},
+					"license": "UNLICENSED",
+					"models": [
+						"GPT-5.6 Terra (copilot)",
+						"Auto (copilot)"
+					],
+					"requiredTools": [
+						"vscode",
+						"execute",
+						"read",
+						"agent",
+						"io.github.upstash/context7/*",
+						"github/*",
+						"edit",
+						"search",
+						"web",
+						"vscode/memory",
+						"todo",
+						"gh-github_support_docs_search/github_support_docs_search"
+					],
+					"source": "./agents/coder.agent.md"
+				},
+				{
+					"id": "designer",
+					"name": "Designer",
+					"description": "Handles all UI/UX design tasks.",
+					"category": "design",
+					"tags": [
+						"ui",
+						"ux",
+						"accessibility"
+					],
+					"capabilities": [
+						"ui-design",
+						"ux-design",
+						"accessibility"
+					],
+					"version": "1.0.0",
+					"author": {
+						"name": "Agent Forge"
+					},
+					"license": "UNLICENSED",
+					"models": [
+						"Gemini 3.7 Flash (copilot)",
+						"Gemini 3.1 Pro (Preview) (copilot)",
+						"Auto (copilot)"
+					],
+					"requiredTools": [
+						"vscode",
+						"execute",
+						"read",
+						"agent",
+						"io.github.upstash/context7/*",
+						"edit",
+						"search",
+						"web",
+						"vscode/memory",
+						"todo",
+						"gh-github_support_docs_search/github_support_docs_search"
+					],
+					"source": "./agents/designer.agent.md"
+				},
+				{
+					"id": "planner",
+					"name": "Planner",
+					"description": "Creates comprehensive implementation plans by researching the codebase, consulting documentation, and identifying edge cases.",
+					"category": "planning",
+					"tags": [
+						"planning",
+						"research",
+						"architecture"
+					],
+					"capabilities": [
+						"implementation-planning",
+						"codebase-research",
+						"risk-analysis"
+					],
+					"version": "1.0.0",
+					"author": {
+						"name": "Agent Forge"
+					},
+					"license": "UNLICENSED",
+					"models": [
+						"GPT-5.6 Sol (copilot)",
+						"Auto (copilot)"
+					],
+					"requiredTools": [
+						"vscode",
+						"execute",
+						"read",
+						"agent",
+						"io.github.upstash/context7/*",
+						"web",
+						"todo",
+						"artifacts",
+						"artifactRules"
+					],
+					"source": "./agents/planner.agent.md"
+				},
+				{
+					"id": "orchestrator",
+					"name": "Orchestrator",
+					"description": "Sonnet, Codex, Gemini",
+					"category": "orchestration",
+					"tags": [
+						"orchestration",
+						"delegation",
+						"coordination"
+					],
+					"capabilities": [
+						"task-decomposition",
+						"agent-delegation",
+						"workflow-coordination"
+					],
+					"version": "1.0.0",
+					"author": {
+						"name": "Agent Forge"
+					},
+					"license": "UNLICENSED",
+					"requiredTools": [
+						"vscode/memory",
+						"vscode/askQuestions",
+						"read/readFile",
+						"agent",
+						"gh-github_support_docs_search/*"
+					],
+					"source": "./agents/orchestrator.agent.md"
+				}
+			]
+		}
+	}
+}
