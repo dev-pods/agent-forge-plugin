@@ -1,9 +1,9 @@
 # Agent Forge
 
 Agent Forge is a curated team of specialized GitHub Copilot agents for planning,
-implementation, design, and project orchestration. This plugin packages four
-independent specialists that can be used together as a lightweight software
-delivery team or invoked individually when a single skill is required.
+implementation, design, and project orchestration. Use the four specialists
+together as a lightweight software delivery team, or invoke one directly when
+you need a single area of expertise.
 
 ## Included agents
 
@@ -27,15 +27,20 @@ Install this plugin from the VS Code Chat Plugin entry point:
 ```text
 .
 ├── README.md                  # Project overview and usage guidance
-├── plugin.json                # Plugin manifest and agent metadata
+├── plugin.json                # Plugin name, version, and description
 ├── mcp.json                   # MCP server registrations for documentation access
 ├── agents/
 │   ├── coder.agent.md         # Coder definition
 │   ├── designer.agent.md      # Designer definition
 │   ├── orchestrator.agent.md   # Orchestrator definition
 │   └── planner.agent.md       # Planner definition
-└── .git/                      # Repository metadata
+└── com.github.copilot/
+	└── agents/                # Packaged copies of the agent definitions
 ```
+
+The canonical agent definitions live in `agents/`. The matching files under
+`com.github.copilot/agents/` are included for the packaged Copilot layout; keep
+both locations synchronized when an agent changes.
 
 ## Use locally
 
@@ -43,32 +48,31 @@ Install this plugin from the VS Code Chat Plugin entry point:
 2. Open the Chat agent picker.
 3. Select the agent that best matches the task, or choose **Orchestrator** when a request spans multiple areas.
 
-The source definitions live in `agents/`, while the plugin metadata in
-`plugin.json` defines the agent catalog, capabilities, supported models, and
-required tools.
+The agent front matter declares each agent’s description, supported models, and
+tools. `mcp.json` registers the documentation services used by the agents,
+including GitHub Support Docs Search and Context7.
 
 ## Recommended workflow
 
 For a multi-step change, use the agents in this order:
 
-1. **Planner** — research the request and define the implementation steps.
-2. **Designer** — shape the user experience when the work includes UI or UX.
-3. **Coder** — implement and test the approved changes.
-4. **Orchestrator** — coordinate the sequence when several specialists or phases are involved.
+1. **Orchestrator** — coordinate the work when several specialists or phases are involved.
+2. **Planner** — research the request and define the implementation steps.
+3. **Designer** — shape the user experience when the work includes UI or UX.
+4. **Coder** — implement and test the approved changes.
 
-For smaller tasks, invoke **Coder** or **Designer** directly. The agents are
-independent, so you can choose only the expertise the task requires.
+For smaller tasks, invoke **Planner**, **Coder**, or **Designer** directly. The
+agents are independent, so you can choose only the expertise the task requires.
 
 ## Maintaining the plugin
 
 When adding or changing an agent:
 
 - Update the matching `.agent.md` definition in `agents/`.
-- Update the matching entry in `plugin.json` so metadata stays accurate.
-- Keep each `id` stable once it has been published.
-- Keep the plugin and agent versions aligned when metadata or behavior changes.
-- Confirm every `source` path resolves to an existing agent file.
-- Review declared tools and models before publishing.
+- Update the matching packaged copy in `com.github.copilot/agents/`.
+- Keep the plugin version in `plugin.json` aligned with published changes.
+- Review each agent’s declared tools and supported models before publishing.
+- Confirm the MCP registrations in `mcp.json` are still available and required.
 
 ## License
 
