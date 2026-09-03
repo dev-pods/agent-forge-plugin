@@ -1,9 +1,9 @@
 # Agent Forge
 
 Agent Forge is a curated team of specialized GitHub Copilot agents for planning,
-implementation, design, and project orchestration. The plugin packages four
-agents that can be used independently or together as a lightweight software
-delivery team.
+implementation, design, and project orchestration. This plugin packages four
+independent specialists that can be used together as a lightweight software
+delivery team or invoked individually when a single skill is required.
 
 ## Included agents
 
@@ -14,41 +14,38 @@ delivery team.
 | **Designer** | UI/UX and accessibility | Design user interfaces, interaction flows, and accessible experiences. |
 | **Orchestrator** | Delegation and coordination | Break a larger request into specialist tasks and coordinate execution. |
 
-## VSCode Chat Plug-in
+## VS Code Chat Plugin
 
-You can install this Agent and Skill by VSCode Chat Plug-in
+Install this plugin from the VS Code Chat Plugin entry point:
 
 [![Install Chat Plugin VS Code](https://img.shields.io/badge/Install_Chat_Plugin-VS_Code-blue)](vscode://chat-plugin/install?source=dev-pods/agent-forge-plugin)
 
-[![Install Chat Plugin VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Chat_Plugin-24BFA5)](vscode-insiders://chat-plugin/install?source=dev-pods/agent-forge-plugin)
-
+[![Install Chat Plugin VS Code Insiders](https://img.shields.io/badge/Install_Chat_Plugin-VS_Code_Insiders-24BFA5)](vscode-insiders://chat-plugin/install?source=dev-pods/agent-forge-plugin)
 
 ## Repository layout
 
 ```text
 .
-├── .plugin/
-│   └── plugin.json              # Plugin metadata
+├── README.md                  # Project overview and usage guidance
+├── plugin.json                # Plugin manifest and agent metadata
+├── mcp.json                   # MCP server registrations for documentation access
 ├── agents/
-│   ├── coder.agent.md           # Coder definition
-│   ├── designer.agent.md        # Designer definition
-│   ├── orchestrator.agent.md    # Orchestrator definition
-│   └── planner.agent.md         # Planner definition
-├── marketplace/
-│   ├── marketplace.json         # Machine-readable agent catalog
-│   └── README.md                # Catalog usage and publishing notes
-└── README.md
+│   ├── coder.agent.md         # Coder definition
+│   ├── designer.agent.md      # Designer definition
+│   ├── orchestrator.agent.md   # Orchestrator definition
+│   └── planner.agent.md       # Planner definition
+└── .git/                      # Repository metadata
 ```
 
 ## Use locally
 
 1. Open this repository in VS Code Insiders with GitHub Copilot enabled.
-2. Open the agent picker in Chat.
-3. Select the agent that best matches the task, or select **Orchestrator** when the request spans multiple areas.
+2. Open the Chat agent picker.
+3. Select the agent that best matches the task, or choose **Orchestrator** when a request spans multiple areas.
 
-The source definitions live in `agents/`. The catalog in
-`marketplace/marketplace.json` provides discoverable metadata such as each
-agent's stable ID, capabilities, supported models, and required tools.
+The source definitions live in `agents/`, while the plugin metadata in
+`plugin.json` defines the agent catalog, capabilities, supported models, and
+required tools.
 
 ## Recommended workflow
 
@@ -62,19 +59,16 @@ For a multi-step change, use the agents in this order:
 For smaller tasks, invoke **Coder** or **Designer** directly. The agents are
 independent, so you can choose only the expertise the task requires.
 
-## Maintaining the catalog
+## Maintaining the plugin
 
 When adding or changing an agent:
 
 - Update the matching `.agent.md` definition in `agents/`.
-- Update its entry in `marketplace/marketplace.json`.
-- Keep the `id` stable once published.
-- Keep the plugin and agent versions aligned for catalog or definition changes.
-- Confirm every catalog `source` path resolves to an existing agent file.
-- Review declared tools and models for accuracy before publishing.
-
-See [`marketplace/README.md`](marketplace/README.md) for the complete catalog
-contract and security review checklist.
+- Update the matching entry in `plugin.json` so metadata stays accurate.
+- Keep each `id` stable once it has been published.
+- Keep the plugin and agent versions aligned when metadata or behavior changes.
+- Confirm every `source` path resolves to an existing agent file.
+- Review declared tools and models before publishing.
 
 ## License
 
