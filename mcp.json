@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "github_docs": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/x/github_support_docs_search/readonly"
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@upstash/context7-mcp@4.0.4"
+      ]
+    }
+  }
+}
