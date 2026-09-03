@@ -1,6 +1,6 @@
 {
 	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-	"name": "Agent Forge",
+	"name": "agent-forge",
 	"version": "1.0.0",
 	"description": "A curated team of specialized GitHub Copilot agents for coding, design, planning, and project orchestration.",
 	"extensions": {

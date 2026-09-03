@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
   "mcpServers": {
     "github_docs": {
-      "type": "http",
+      "type": "streamable-http",
       "url": "https://api.githubcopilot.com/mcp/x/github_support_docs_search/readonly"
     },
     "context7": {
